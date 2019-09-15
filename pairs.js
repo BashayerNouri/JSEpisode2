@@ -18,19 +18,22 @@
 *       pairs() returns []
 ****************************************************************/
 function pairs(names) {
-  if (names == null) {
-    return []
-  }
-  else if (names.length == 0) {
-    return []
-  }
-  else if (names.length !== 0) {
-    for (let counter = 0; counter < names.length; counter++) {
-          let random = names.getRandom()
-          console.log(random);
+  if (names == null) return []
+  if (names.length == 0) return []
 
-    } 
+  let groups = [];
+  let firstName, secondName;
 
+  while (names.length > 1) {
+    firstName = names.getRandom();
+    secondName = names.getRandom();
+    groups.push([firstName,secondName])
+  }
+
+  if (names.length === 1){
+    groups.push([names[0]])
+  }
+  return groups;
   
   }
 
